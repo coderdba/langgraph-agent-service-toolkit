@@ -1,0 +1,57 @@
+[project]
+name = "agent-service-toolkit"
+version = "0.1.0"
+description = "Full toolkit for running an AI agent service built with LangGraph, FastAPI and Streamlit"
+readme = "README.md"
+authors = [
+    {name = "Joshua Carroll", email = "carroll.joshk@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Framework :: FastAPI",
+    "Programming Language :: Python :: 3.12",
+]
+
+requires-python = ">=3.10"
+
+dependencies = [
+    "duckduckgo-search>=6.3",
+    "fastapi ~=0.115.0",
+    "httpx ~=0.26.0",
+    "langchain-core ~=0.3.0",
+    "langchain-community ~=0.3.0",
+    "langchain-openai ~=0.2.0",
+    "langchain-groq ~=0.2.0",
+    "langchain-google-genai ~=2.0.0",
+    "langchain-anthropic ~= 0.2.0",
+    "langgraph ~=0.2.22",
+    "langgraph-checkpoint ~=2.0.0",
+    "langgraph-checkpoint-sqlite ~=2.0.0",
+    "langsmith ~=0.1.96",
+    "numexpr ~=2.10.1",
+    "pydantic ~=2.9.0",
+    "pyowm ~=3.3.0",
+    "python-dotenv ~=1.0.1",
+    "setuptools ~=74.0.0",
+    "streamlit ~=1.37.0",
+    "uvicorn ~=0.30.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "pytest-env",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+extend-select = ["I", "U"]
+
+[tool.pytest_env]
+OPENAI_API_KEY = "sk-fake-openai-key"
